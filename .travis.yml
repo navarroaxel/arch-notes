@@ -4,8 +4,8 @@ git:
 services:
   - docker
 before_install:
-  - docker build -t arch_docker .
+  - docker build --file test/Dockerfile --tag arch_docker .
 script:
-  - docker run arch_docker aurman/aurman.sh
+  - docker run arch_docker aurman/snap.sh
 notifications:
   email: false
