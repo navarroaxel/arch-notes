@@ -2,7 +2,7 @@
 FROM base/devel
 
 # create user and set sudo priv
-RUN useradd -m archuser -s /bin/bash
+RUN useradd --shell /bin/bash --create-home archuser 
 RUN echo 'archuser ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 # switch user and workdir

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-sed -i '/\[multilib\]/,/Include/s/^[ ]*#//' /etc/pacman.conf
-// TODO Include GPG
-sudo pacman -S lib32-gcc-libs
-aurman -S aosp-devel
+sudo sed -i '/\[multilib\]/,/Include/s/^[ ]*#//' /etc/pacman.conf
+sudo pacman -Sy --noconfirm lib32-gcc-libs
+aurman -S --noconfirm --noedit aosp-devel

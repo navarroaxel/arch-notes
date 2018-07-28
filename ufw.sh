@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-pacman -S ufw
+sudo pacman -S ufw
 # Enable the start-up with the system
-systemctl enable ufw.service
+sudo systemctl enable ufw.service
 # Turn on
-ufw enable
+sudo ufw enable

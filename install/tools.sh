@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-pacman -S git firefox
+pacman -S dnsutils rsync lsof git xterm vim
