@@ -5,6 +5,7 @@ if [[ ! $1 ]] ; then
 else
     HOSTNAME=$1
 fi
+# hostnamectl set-hostname $HOSTNAME
 echo $HOSTNAME > /etc/hostname
 echo '127.0.0.1	localhost' >> /etc/hosts
 echo '::1		localhost' >> /etc/hosts

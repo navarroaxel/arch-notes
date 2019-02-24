@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-aurman -S redshift plasma5-applets-redshift-control
+sudo pacman -S --noconfirm plasma5-applets-redshift-control
