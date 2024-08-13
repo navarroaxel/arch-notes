@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
-cryptsetup luksFormat /dev/sda3 || { echo "Format LUKS device failed!"; exit 1; }
+if [[ ! $1 ]] ; then
+    PARTITION=/dev/nvme0n1p2
+else
+    PARTITION=$1
+fi
+
+cryptsetup luksFormat $PARTITION || { echo "Format LUKS device failed!"; exit 1; }
 echo 'Opening encrypted volume...'
-cryptsetup open --type luks /dev/sda3 lvm  || { echo "Open LUKS device failed!"; exit 1; }
+cryptsetup open --type luks $PARTITION lvm  || { echo "Open LUKS device failed!"; exit 1; }

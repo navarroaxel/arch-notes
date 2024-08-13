@@ -11,6 +11,6 @@ if [[ ! $2 ]] ; then
 else
     NAME=$2
 fi
-useradd --groups wheel --shell /bin/bash --create-home --comment "$NAME" $LOGIN || { echo "Create user failed!"; exit 1; }
-echo "$LOGIN ALL=(ALL) ALL" >> /etc/sudoers
-passwd $LOGIN || { echo "Create password for $LOGIN failed!"; exit 1; }
+systemctl enable --now systemd-homed
+homectl create $LOGIN --real-name="$NAME" --member-of=wheel || { echo "Create user failed!"; exit 1; }
+sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers

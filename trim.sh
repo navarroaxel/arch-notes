@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-sudo systemctl enable fstrim.timer --now
+sudo systemctl enable --now fstrim.timer
 
 # check timers
 systemctl list-timers fstrim.timer --all
